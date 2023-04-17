@@ -1,12 +1,22 @@
 radio.onReceivedNumber(function (receivedNumber) {
     if (receivedNumber == 1) {
-        kBit.motor(KBitMotorObs.LeftSide, KBitMotorDir.Forward, 40)
-        kBit.motor(KBitMotorObs.RightSide, KBitMotorDir.Forward, 50)
+        if (enable_wheel_adjustment) {
+            kBit.motor(KBitMotorObs.LeftSide, KBitMotorDir.Forward, 40)
+            kBit.motor(KBitMotorObs.RightSide, KBitMotorDir.Forward, 50)
+        } else {
+            kBit.motor(KBitMotorObs.LeftSide, KBitMotorDir.Forward, 40)
+            kBit.motor(KBitMotorObs.RightSide, KBitMotorDir.Forward, 40)
+        }
         kBit.led(KBitColor.Green)
         kBit.ledBrightness(100)
     } else if (receivedNumber == 2) {
-        kBit.motor(KBitMotorObs.LeftSide, KBitMotorDir.Back, 40)
-        kBit.motor(KBitMotorObs.RightSide, KBitMotorDir.Back, 49)
+        if (enable_wheel_adjustment) {
+            kBit.motor(KBitMotorObs.LeftSide, KBitMotorDir.Forward, 40)
+            kBit.motor(KBitMotorObs.RightSide, KBitMotorDir.Forward, 50)
+        } else {
+            kBit.motor(KBitMotorObs.LeftSide, KBitMotorDir.Forward, 40)
+            kBit.motor(KBitMotorObs.RightSide, KBitMotorDir.Forward, 40)
+        }
         kBit.led(KBitColor.Blue)
     } else if (receivedNumber == 3) {
         kBit.carStop()
@@ -27,4 +37,6 @@ radio.onReceivedNumber(function (receivedNumber) {
         kBit.led(KBitColor.White)
     }
 })
+let enable_wheel_adjustment = 0
 radio.setGroup(1)
+enable_wheel_adjustment = 0
