@@ -1,6 +1,6 @@
 radio.onReceivedNumber(function (receivedNumber) {
     if (receivedNumber == 1) {
-        if (enable_wheel_adjustment) {
+        if (enable_wheel_adjustment == 1) {
             kBit.motor(KBitMotorObs.LeftSide, KBitMotorDir.Forward, 40)
             kBit.motor(KBitMotorObs.RightSide, KBitMotorDir.Forward, 50)
         } else {
@@ -10,7 +10,7 @@ radio.onReceivedNumber(function (receivedNumber) {
         kBit.led(KBitColor.Green)
         kBit.ledBrightness(100)
     } else if (receivedNumber == 2) {
-        if (enable_wheel_adjustment) {
+        if (enable_wheel_adjustment == 1) {
             kBit.motor(KBitMotorObs.LeftSide, KBitMotorDir.Forward, 40)
             kBit.motor(KBitMotorObs.RightSide, KBitMotorDir.Forward, 50)
         } else {
